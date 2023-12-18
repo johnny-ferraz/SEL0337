@@ -1,0 +1,29 @@
+commit 6eee8da7ff2eea35755153ea7f30014880d73832
+Author: João Lucas Almeida Caldas Ferraz <125420453+johnny-ferraz@users.noreply.github.com>
+Date:   Mon Dec 18 09:38:15 2023 -0300
+
+    Adiciona as imagens do código de CV
+
+commit 60ad3331d08603aab13bcff8cff60aacc5dfc0aa
+Author: João Lucas Almeida Caldas Ferraz <125420453+johnny-ferraz@users.noreply.github.com>
+Date:   Mon Dec 18 09:35:39 2023 -0300
+
+    Adiciona o código de CV e o algoritmo Haar Cascade
+
+commit 2aed14f1cd03b4ad6ca62a858662c5956e4adc82
+Author: João Lucas Almeida Caldas Ferraz <125420453+johnny-ferraz@users.noreply.github.com>
+Date:   Mon Dec 18 09:28:08 2023 -0300
+
+    Adiciona o código RFID da tag
+
+commit 07de529197076d57541cb76859b29e5574b6d742
+Author: João Lucas Almeida Caldas Ferraz <125420453+johnny-ferraz@users.noreply.github.com>
+Date:   Mon Dec 11 14:36:33 2023 -0300
+
+    Create README.md
+
+commit 2b78f1ab58e7b919198120e277c40bfc48bfc207
+Author: João Lucas Almeida Caldas Ferraz <125420453+johnny-ferraz@users.noreply.github.com>
+Date:   Mon Nov 27 10:57:20 2023 -0300
+
+    Initial commit
