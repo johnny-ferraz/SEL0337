@@ -14,19 +14,17 @@ O loop principal é responsável por exibir a mensagem "Aproxime a tag do leitor
 
 ![Circuito RFID](https://raw.githubusercontent.com/johnny-ferraz/SEL0337/main/Pr%C3%A1tica%206/Imagens/RFID.jpg)
 
-## Reconhecimento Facial via Visão Computacional
+## Reconhecimento Facial utilizando Visão Computacional e Algoritmo Haar Cascade
 
-Nesta etapa que visa a implementação de um sistema de reconhecimento facial, são importados ao código bibliotecas essenciais, como ```cv2``` para processamento de imagem, ```os``` para interação com o sistema operacional, ```RPi.GPIO``` para controle dos pinos GPIO, ```time``` para manipulação de tempo e ```picamera2``` para controle da câmera da Raspberry Pi.
+Nesta etapa foi implementado um sistema de reconhecimento facial utilizando a câmera da Raspberry Pi e o algoritmo `Haar Cascade`, classificador em cascata pré-treinado para a detecção facial. O código realiza a captura da imagem no momento em que um push-button é pressionado e logo em seguida o algoritmo é aplicado. Para interação com o usuário, um LED verde é aceso durante o processamento da imagem. Os rostos detectados pelo classificador são armazenados em um diretório ```detected_faces```. 
 
-Em seguida, são configurados os pinos GPIO, sendo o botão associado ao pino 18 e o LED ao pino 20. Esses pinos são inicializados como entrada e saída, respectivamente. O botão é configurado com pull-up e é ativado em borda de descida. A configuração do botão inclui a detecção de borda de descida, o que significa que a função ```photo``` é chamada quando o botão é pressionado. Há também um mecanismo de `debounce` com um tempo de 50 milissegundos para evitar leituras instáveis do botão. Já o LED está inicialmente desligado.
+Inicialmente, são importados ao código bibliotecas essenciais, como ```cv2``` para visão computacional, ```os``` para interação com o sistema operacional, ```RPi.GPIO``` para controle dos pinos GPIO, ```time``` para manipulação de tempo e ```picamera2``` para controle da câmera da Raspberry Pi.
 
-O programa utiliza o algoritmo `Haar Cascade`, classificador em cascata pré-treinado para a detecção facial. Essa ferramenta é essencial para identificar rostos nas imagens capturadas.
+Em seguida, são configurados os pinos GPIO, sendo o botão associado ao pino 18 e o LED ao pino 20. Esses pinos são inicializados como entrada e saída, respectivamente. O botão é configurado com pull-up, ativado em borda de descida com chamada da função ```photo``` e mecanismo de `debounce` de 50 ms para evitar leituras instáveis do botão. Já o LED é definido como inicialmente desligado.
 
-A câmera da Raspberry Pi é inicializada e configurada para criar uma visualização com resolução de 640x480 pixels. Um diretório chamado ```detected_faces``` é definido para armazenar as imagens contendo rostos detectados e é criado caso ainda não exista.
+A câmera da Raspberry Pi é inicializada e configurada para criar uma visualização com resolução de 640x480 pixels. O diretório ```detected_faces``` é definido para armazenar as imagens dos rostos detectados e é criado caso ainda não exista.
 
-A função ```photo()``` é definida para lidar com a detecção facial quando o botão é pressionado. Quando o botão é acionado, um quadro é capturado pela câmera, convertido para escala de cinza e o classificador em cascata é aplicado para detectar rostos na imagem. As faces detectadas são destacadas na imagem original com retângulos verdes e as porções contendo os rostos são salvas como arquivos JPEG no diretório definido anteriormente.
-
-Além disso, a imagem com os retângulos desenhados é exibida em uma janela com o título ```Camera```. O LED também é aceso durante a detecção facial e apagado após a conclusão.
+A função ```photo()``` é definida para lidar com a detecção facial quando o botão é pressionado. Quando o botão é acionado, um quadro é capturado pela câmera, convertido para escala de cinza e o classificador em cascata é aplicado para detectar rostos na imagem. As faces detectadas são destacadas na imagem original com retângulos verdes e as porções contendo os rostos são salvas como arquivos JPEG no diretório definido anteriormente. Além disso, a imagem com os retângulos desenhados é exibida em uma janela com o título ```Camera```. O LED também é aceso durante a detecção facial e apagado após a conclusão.
 
 O programa entra em um loop principal que é interrompido apenas quando o usuário pressiona `CTRL+C`. Dentro desse loop, não há operações específicas, apenas uma instrução vazia que mantém o programa em execução. Se o programa for interrompido, os pinos GPIO são limpos antes do encerramento.
 
