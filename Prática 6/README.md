@@ -4,17 +4,13 @@ Este projeto consiste na integração de periféricos embarcados na Raspberry Pi
 
 ## Controle de acesso via Tag RFID
 
-Neste projeto foi desenvolvido um código em Python que se concentra na integração de uma tag RFID. O programa permite a leitura eficiente de dados e identificadores (IDs) associados a essas tags. Posteriormente, foi implementada uma etapa para a criação de um sistema de verificação. Esse sistema, baseado em um circuito básico e no código elaborado, possibilita a comparação entre o ID de uma tag RFID e a base de dados de IDs armazenada no próprio código. Essa abordagem oferece uma solução eficaz para a identificação e validação de tags RFID.
+Neste projeto foi desenvolvido um código em Python que se concentra na integração de uma tag RFID. O programa realiza a leitura do ID associado a essa tag e, por meio de um sistema de verificação, compara seu valor com o ID esperado. Para interação com o usuário, um LED verde é aceso se o ID for coincidente (acesso liberado) e um LED vermelho é aceso caso os IDs sejam distintos (acesso negado).
 
-Para possibilitar a utilização destas tags, o código faz uso do módulo ```SimpleMFRC522```, importado da biblioteca ```mfrc522```, que permite a interação com a ID de uma tag. Inicialmente, são configurados os pinos GPIO, utilizando o canal BCM da Broadcom, e os warnings são desativados para evitar mensagens indesejadas.
+Para possibilitar tal operação, o código faz uso do módulo ```SimpleMFRC522```, importado da biblioteca ```mfrc522```, que permite a interação com o ID de uma tag. São também configurados os pinos GPIO, utilizando o canal BCM da Broadcom (pinos GPIO) e os warnings são desativados para evitar mensagens indesejadas.
 
-O programa define variáveis para os pinos dos LEDs verde e vermelho, os configura como saídas e os inicializa apagados. Em seguida, é criado um objeto ```leitor``` da classe ```SimpleMFRC522()``` para facilitar a interação com o leitor RFID.
+O programa define variáveis para os pinos dos LEDs verde e vermelho, configurando-os como saídas inicialmente apagados. Em seguida, é criado um objeto ```leitor``` da classe ```SimpleMFRC522()``` para possibilitar a interação com o leitor RFID.
 
-No loop principal, exibe a mensagem "Aproxime a tag do leitor" e entra em um loop infinito. Dentro desse loop, a função ```leitor.read()``` é utilizada para obter o ID e o texto da tag, para assim verificar a compatibilidade do ID identificado, com o cartão previamente escolhido para este projeto.
-
-Para controlar os LEDs, se o ID for correspondente, o LED verde é aceso e o vermelho é apagado. Caso contrário, o LED verde é apagado, e o vermelho é aceso.
-
-Os dados da tag, incluindo ID e texto, são impressos no terminal. Há um atraso de 3 segundos antes da próxima leitura, proporcionando um intervalo entre as operações. Este código exemplifica a utilização prática do módulo ```SimpleMFRC522``` para ler e verificar tags RFID na Raspberry Pi, demonstrando a interação física com o ambiente por meio dos LEDs.
+O loop principal é responsável por exibir a mensagem "Aproxime a tag do leitor" no terminal, chamar a função ```leitor.read()```, utilizada para obter o ID e o texto da tag, para assim verificar a compatibilidade do ID identificado, com o cartão previamente escolhido para este projeto, e realizar o controle dos LEDs. Os dados da tag, incluindo ID e texto, são impressos no terminal. Há um atraso de 3 segundos antes da próxima leitura, proporcionando um intervalo entre as operações.
 
 ![Circuito RFID](https://raw.githubusercontent.com/johnny-ferraz/SEL0337/main/Pr%C3%A1tica%206/Imagens/RFID.jpg)
 
