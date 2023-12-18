@@ -32,7 +32,7 @@ A função ```photo``` é definida para lidar com a detecção facial quando o b
 
 Além disso, a imagem com os retângulos desenhados é exibida em uma janela com o título ```Camera```. O LED também é aceso durante a detecção facial e apagado após a conclusão.
 
-A configuração do botão inclui a detecção de borda de descida, o que significa que a função ```photo``` é chamada quando o botão é pressionado. Há também um mecanismo de "debounce" com um tempo de 50 milissegundos para evitar leituras instáveis do botão.
+A configuração do botão inclui a detecção de borda de descida, o que significa que a função ```photo``` é chamada quando o botão é pressionado. Há também um mecanismo de `debounce` com um tempo de 50 milissegundos para evitar leituras instáveis do botão.
 
 O programa entra em um loop principal que é interrompido apenas quando o usuário pressiona `CTRL+C`. Dentro desse loop, não há operações específicas, apenas uma instrução vazia que mantém o programa em execução. Se o programa for interrompido, os pinos GPIO são limpos antes do encerramento.
 
