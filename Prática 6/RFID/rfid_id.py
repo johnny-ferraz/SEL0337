@@ -22,9 +22,8 @@ GPIO.output(LED_VERMELHO, False) # Apaga o LED vermelho
 
 leitor = SimpleMFRC522() # Cria o objeto "leitor" para a instância "SimpleMFRC522" da biblioteca
 
-print("Aproxime a tag do leitor") # Printa a mensagem para aproximar a tag do leitor
-
 while True: # Loop
+	print("Aproxime a tag do leitor") # Printa a mensagem para aproximar a tag do leitor
 	id, texto = leitor.read() # Variáveis que armazenam o ID e o texto presente na tag
 	if id == 771459753502: # Verifica se o ID da tag é 771459753502
 		GPIO.output(LED_VERDE, True) # Acende o LED verde
