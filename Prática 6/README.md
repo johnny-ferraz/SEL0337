@@ -36,3 +36,4 @@ A configuração do botão inclui a detecção de borda de descida, o que signif
 
 O programa entra em um loop principal que é interrompido apenas quando o usuário pressiona `CTRL+C`. Dentro desse loop, não há operações específicas, apenas uma instrução vazia que mantém o programa em execução. Se o programa for interrompido, os pinos GPIO são limpos antes do encerramento.
 
+![Circuito RFID](https://raw.githubusercontent.com/johnny-ferraz/SEL0337/main/Pr%C3%A1tica%206/Imagens/C%C3%A2mera.jpg)
